@@ -18,17 +18,17 @@
     <ion-grid class="calendar-border">
         <ion-row>
             <ion-col width-15>
-                <button small clear>
+                <button small clear (click)="previousMonth()">
                   <ion-icon name="ios-arrow-back"></ion-icon>
                 </button>
             </ion-col>
             <ion-col class="center" width-70>
                 <button small clear>
-                  Month
+                  {{current | date: 'MMM yyyy'}}
                 </button>
             </ion-col>
             <ion-col width-15 class="right-arrow">
-                <button small clear>
+                <button small clear (click)="nextMonth()">
                   <ion-icon name="ios-arrow-forward"></ion-icon>
                 </button>
             </ion-col>
@@ -57,8 +57,8 @@
             </ion-col>
         </ion-row>
         <ion-row class="calendar-row" *ngFor="let week of month">
-            <ion-col class="center" width-14 *ngFor="let day of week">
-                {{day}}
+            <ion-col class="center" width-14 *ngFor="let day of week" [class.today]="today.getDate()===day.getDate() && today.getMonth() === day.getMonth()">
+                {{day.getDate()}}
             </ion-col>
         </ion-row>
     </ion-grid>
