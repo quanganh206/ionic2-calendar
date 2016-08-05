@@ -15,6 +15,18 @@
 - typings install
 - ionic server (to run test) 
 
+# Using 
+- I can not find a good way to expose it as stand-alone ionic2 directive and user just npm install and use. 
+- Now you can re-use that directive in following way:
+  1. copy [directive] folder into your [app] folder.
+  2. In your page 
+    - import { CalendarComponent } from '../../directive/calendar/calendar';
+    - @Component({
+        ...
+        directives: [CalendarComponent]
+      })
+  3. Push <ionic2-calendar></ionic2-calendar> to anywhere you want calendar to display. 
+
 ## Calendar Month View 
 - Grid base UI (not table)
 - Expose date object directly for later use.
@@ -29,7 +41,9 @@
 - [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)
 - [ ] Calendar Week View
 - [ ] Calendar Day View
-- [ ] Configuration 
+- [ ] Configuration
+- [ ] Swipe to change Month, Week, Day view
+- [ ] npm install and use directly  
 
 # Environment 
 ```
