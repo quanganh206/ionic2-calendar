@@ -27,7 +27,7 @@ Some of that library should be easy to apply but maybe hard to extends to adapt 
 - will update soon
 
 # Todo List
-- [x] Not directive or reusable component yet. (updated 5th Aug 2016)
+- [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)
 - [ ] Calendar Week View
 - [ ] Calendar Day View
 - [ ] Configuration 
