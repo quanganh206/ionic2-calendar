@@ -2,7 +2,7 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
-www/build/
+# www/build/
 platforms/
 plugins/
 *.swp
