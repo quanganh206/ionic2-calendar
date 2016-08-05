@@ -27,6 +27,7 @@ Some of that library should be easy to apply but maybe hard to extends to adapt 
 - Not directive or reusable component yet. (will update soon)
 
 # Environment 
+```
 Cordova CLI: 6.3.0
 Gulp version:  CLI version 1.2.1
 Gulp local:   Local version 3.9.1
@@ -38,3 +39,4 @@ ios-sim version: 5.0.8
 OS: Mac OS X El Capitan
 Node Version: v6.2.0
 Xcode version: Xcode 7.3.1 Build version 7D1014
+```
