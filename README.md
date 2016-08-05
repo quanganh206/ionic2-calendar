@@ -21,10 +21,16 @@ Some of that library should be easy to apply but maybe hard to extends to adapt 
 - Expose date object directly for later use.
 
 ## Calendar Week View
-- Will update soon
+- will update soon
+
+## Calendar Day View 
+- will update soon
 
 # Todo List
-- Not directive or reusable component yet. (will update soon)
+- [x] Not directive or reusable component yet. (updated 5th Aug 2016)
+- [ ] Calendar Week View
+- [ ] Calendar Day View
+- [ ] Configuration 
 
 # Environment 
 ```

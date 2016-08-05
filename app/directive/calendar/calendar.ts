@@ -1,21 +1,86 @@
 import { Component } from '@angular/core';
-import { NavController, IONIC_DIRECTIVES } from 'ionic-angular';
-import { CalendarComponent } from '../../directive/calendar/calendar';
+import { IONIC_DIRECTIVES } from 'ionic-angular';
 /*
-  Generated class for the CalendarPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  Calendar Component 
 */
 @Component({
-  templateUrl: 'build/pages/calendar/calendar.html',
-  directives: [CalendarComponent]
+  selector: 'ionic2-calendar',
+  template: `
+    <!-- Start Calendar -->
+      <ion-grid class="calendar-border">
+          <ion-row>
+              <ion-col width-15>
+                  <button small clear (click)="previousMonth()">
+                    <ion-icon name="ios-arrow-back"></ion-icon>
+                  </button>
+              </ion-col>
+              <ion-col class="center" width-70>
+                  <button small clear>
+                    {{current | date: 'MMM yyyy'}}
+                  </button>
+              </ion-col>
+              <ion-col width-15 class="right-arrow">
+                  <button small clear (click)="nextMonth()">
+                    <ion-icon name="ios-arrow-forward"></ion-icon>
+                  </button>
+              </ion-col>
+          </ion-row>
+          <ion-row class="calendar-row">
+              <ion-col class="center" width-15>
+                  Sun
+              </ion-col>
+              <ion-col class="center" width-14>
+                  Mon
+              </ion-col>
+              <ion-col class="center" width-14>
+                  Tue
+              </ion-col>
+              <ion-col class="center" width-14>
+                  Wed
+              </ion-col>
+              <ion-col class="center" width-14>
+                  Thu
+              </ion-col>
+              <ion-col class="center" width-14>
+                  Fri
+              </ion-col>
+              <ion-col class="center" width-15>
+                  Sat
+              </ion-col>
+          </ion-row>
+          <ion-row class="calendar-row" *ngFor="let week of month">
+              <ion-col class="center" width-14 *ngFor="let day of week" [class.today]="today.getDate()===day.getDate() && today.getMonth() === day.getMonth()">
+                  {{day.getDate()}}
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+    <!-- End Calendar -->
+  `,
+  styles: [`
+      .right-arrow {
+          text-align: right;
+      }
+      .center {
+          text-align: center;
+      }
+      .calendar-border {
+          border: 1px solid #cccccf;
+      }
+      .calendar-row {
+          border-top: 1px solid #cccccf;
+      }
+      .today {
+          background-color: green;
+      }
+  `],
+  directives: [IONIC_DIRECTIVES]
 })
-export class CalendarPage {
+export class CalendarComponent {
   month: Array<number>;
   current: Date;
   today: Date;
-  constructor(private nav: NavController) {
+  constructor() {
+    console.log('CalendarComponent');
     this.today = new Date();
     this.current = new Date();
     this.current.setTime(this.today.getTime());
