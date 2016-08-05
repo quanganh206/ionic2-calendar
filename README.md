@@ -8,6 +8,14 @@ It's just for fun and expose a part my research on calendar processing with Goog
 
 Some of that library should be easy to apply but maybe hard to extends to adapt what you need. It's a message for user want developer extend that library and think about it does 80% work. 20% hardest things for your developer so should play nice :D 
 
+# Setup and Running 
+- npm install -g ionic@beta
+- git clone https://github.com/quanganh206/ionic2-calendar
+- npm install 
+- typings install
+
+- ionic server 
+
 ## Calendar Month View 
 - Grid base UI (not table)
 - Expose date object directly for later use.
@@ -17,3 +25,16 @@ Some of that library should be easy to apply but maybe hard to extends to adapt 
 
 # Todo List
 - Not directive or reusable component yet. (will update soon)
+
+# Environment 
+Cordova CLI: 6.3.0
+Gulp version:  CLI version 1.2.1
+Gulp local:   Local version 3.9.1
+Ionic Framework Version: 2.0.0-beta.10
+Ionic CLI Version: 2.0.0-beta.32
+Ionic App Lib Version: 2.0.0-beta.18
+ios-deploy version: 1.8.6 
+ios-sim version: 5.0.8 
+OS: Mac OS X El Capitan
+Node Version: v6.2.0
+Xcode version: Xcode 7.3.1 Build version 7D1014
