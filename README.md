@@ -8,7 +8,7 @@
 
 - Some source in that library should be easy to apply but maybe hard to extends to adapt on what you need. It's a message for user want developer extend that library and think about it does 80% work. The rest, 20% hardest things for your developer so should play nice. :D
 
-<img src="http://i1320.photobucket.com/albums/u521/quanganh206/Screen%20Shot%202016-08-06%20at%202.23.53%20PM_zpsgzcpcusf.png" align="left" width="20%"/>
+<img src="http://i1320.photobucket.com/albums/u521/quanganh206/Screen%20Shot%202016-08-06%20at%202.23.53%20PM_zpsgzcpcusf.png" align="left" width="25%"/>
 
 # Setup and Running 
 - npm install -g ionic@beta
@@ -65,5 +65,5 @@ Xcode version: Xcode 7.3.1 Build version 7D1014
 #Update 
 - 6th Aug 2016: update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
 
-  
+
 
