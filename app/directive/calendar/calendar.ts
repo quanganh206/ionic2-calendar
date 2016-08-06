@@ -16,7 +16,7 @@ import { IONIC_DIRECTIVES } from 'ionic-angular';
           <ion-row class="calendar-row" *ngFor="let week of month; let i = index;">
               <ion-col class="center calendar-col" width-14 *ngFor="let day of week"
                 [class.today]="today.getDate()===day.getDate() && today.getMonth() === day.getMonth()" 
-                [class.diff-month]="today.getMonth() !== day.getMonth()">
+                [class.diff-month]="current.getMonth() !== day.getMonth()">
                   {{day.getDate()}}
               </ion-col>
           </ion-row>
