@@ -57,6 +57,8 @@ var ionic_angular_1 = require('ionic-angular');
 */
 var CalendarComponent = (function () {
     function CalendarComponent() {
+        this.wHeadShort = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+        this.wHeadMed = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         console.log('CalendarComponent');
         this.today = new Date();
         this.current = new Date();
@@ -141,8 +143,8 @@ var CalendarComponent = (function () {
     CalendarComponent = __decorate([
         core_1.Component({
             selector: 'ionic2-calendar',
-            template: "\n    <!-- Start Calendar -->\n      <ion-grid class=\"calendar-border\">\n          <ion-row>\n              <ion-col width-15>\n                  <button small clear (click)=\"previousMonth()\">\n                    <ion-icon name=\"ios-arrow-back\"></ion-icon>\n                  </button>\n              </ion-col>\n              <ion-col class=\"center\" width-70>\n                  <button small clear>\n                    {{current | date: 'MMM yyyy'}}\n                  </button>\n              </ion-col>\n              <ion-col width-15 class=\"right-arrow\">\n                  <button small clear (click)=\"nextMonth()\">\n                    <ion-icon name=\"ios-arrow-forward\"></ion-icon>\n                  </button>\n              </ion-col>\n          </ion-row>\n          <ion-row class=\"calendar-row\">\n              <ion-col class=\"center\" width-15>\n                  Sun\n              </ion-col>\n              <ion-col class=\"center\" width-14>\n                  Mon\n              </ion-col>\n              <ion-col class=\"center\" width-14>\n                  Tue\n              </ion-col>\n              <ion-col class=\"center\" width-14>\n                  Wed\n              </ion-col>\n              <ion-col class=\"center\" width-14>\n                  Thu\n              </ion-col>\n              <ion-col class=\"center\" width-14>\n                  Fri\n              </ion-col>\n              <ion-col class=\"center\" width-15>\n                  Sat\n              </ion-col>\n          </ion-row>\n          <ion-row class=\"calendar-row\" *ngFor=\"let week of month\">\n              <ion-col class=\"center\" width-14 *ngFor=\"let day of week\" [class.today]=\"today.getDate()===day.getDate() && today.getMonth() === day.getMonth()\">\n                  {{day.getDate()}}\n              </ion-col>\n          </ion-row>\n      </ion-grid>\n    <!-- End Calendar -->\n  ",
-            styles: ["\n      .right-arrow {\n          text-align: right;\n      }\n      .center {\n          text-align: center;\n      }\n      .calendar-border {\n          border: 1px solid #cccccf;\n      }\n      .calendar-row {\n          border-top: 1px solid #cccccf;\n      }\n      .today {\n          background-color: green;\n      }\n  "],
+            template: "\n    <!-- Start Calendar -->\n      <ion-grid class=\"calendar\">\n          <ion-row class=\"calendar-header-row\">\n              <ion-col class=\"center calendar-header-col\" width-14 *ngFor=\"let head of wHeadShort\">\n                  <b>{{head}}</b>\n              </ion-col>\n          </ion-row>\n          <ion-row class=\"calendar-row\" *ngFor=\"let week of month; let i = index;\">\n              <ion-col class=\"center calendar-col\" width-14 *ngFor=\"let day of week\"\n                [class.today]=\"today.getDate()===day.getDate() && today.getMonth() === day.getMonth()\" \n                [class.diff-month]=\"today.getMonth() !== day.getMonth()\">\n                  {{day.getDate()}}\n              </ion-col>\n          </ion-row>\n          <ion-row class=\"calendar-last-row\">\n              <ion-col width-80>\n                  {{current | date: 'EEEE, MMM dd yyyy'}}\n              </ion-col>\n              <ion-col width-10 (click)=\"previousMonth()\">\n                  <ion-icon name=\"ios-arrow-back\"></ion-icon>\n              </ion-col>\n              <ion-col width-10 class=\"right-arrow\"  (click)=\"nextMonth()\">\n                  <ion-icon name=\"ios-arrow-forward\"></ion-icon>\n              </ion-col>\n          </ion-row>\n      </ion-grid>\n    <!-- End Calendar -->\n  ",
+            styles: ["\n      .calendar {\n        font-size: calc(0.65em + 1vmin);\n        color: #585D5A;\n      }\n      .right-arrow {\n          text-align: right;\n      }\n      .center {\n          text-align: center;\n      }\n      .calendar-header-row {\n          background-color: #575758;\n          color: #FFFFFF;\n      }\n      .calendar-row {\n          border-top: 1px solid #BCC2C6;\n          border-left: 1px solid #BCC2C6;\n      }\n      .calendar-header-col {\n          font-size: calc(0.55em + 1vmin);\n      }\n      .calendar-col {\n          border-right: 1px solid #BCC2C6;\n      }\n      .calendar-last-row {\n          border: 1px solid #BCC2C6;\n          font-size: calc(0.75em + 1vmin);\n          font-weight: bold;\n      }\n      .today {\n          background-color: #E89F9D;\n          color: #FFFFFF;\n      } \n      .diff-month {\n          background-color: #E1E1E1;\n          color: #BCC2C6;\n      } \n  "],
             directives: [ionic_angular_1.IONIC_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
@@ -332,16 +334,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var calendar_1 = require('../../directive/calendar/calendar');
 var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
-        console.log('HomePage');
+        console.log(' HomePage ');
     }
     HomePage = __decorate([
         core_1.Component({
             templateUrl: 'build/pages/home/home.html',
-            directives: [calendar_1.CalendarComponent],
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], HomePage);
@@ -349,7 +349,7 @@ var HomePage = (function () {
 }());
 exports.HomePage = HomePage;
 
-},{"../../directive/calendar/calendar":2,"@angular/core":154,"ionic-angular":418}],7:[function(require,module,exports){
+},{"@angular/core":154,"ionic-angular":418}],7:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
