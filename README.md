@@ -27,7 +27,7 @@
         ...
         directives: [CalendarComponent]
       })
-  3. Push <ionic2-calendar></ionic2-calendar> to anywhere you want calendar to display. 
+  3. Push ionic2-calendar tag to anywhere you want calendar to display. 
 
 ## Calendar Month View 
 - Grid base UI (not table)
