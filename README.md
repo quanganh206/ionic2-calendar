@@ -19,21 +19,25 @@
 # Using 
 - npm install ionic2-calendar2 --save (in ionic project folder)
 - in app.module.ts
+  ```
   import { Ionic2Calendar } from 'ionic2-calendar2';
   @NgModule({
-  declarations: [
-    ...
-    Ionic2Calendar,
-    ...
-  ],
-  providers: [
-    ...
-    Ionic2Calendar,
-    ...
-  ]
-})
+    declarations: [
+      ...
+      Ionic2Calendar,
+      ...
+    ],
+    providers: [
+      ...
+      Ionic2Calendar,
+      ...
+    ]
+  })
+  ```
 - Push component to anywhere you want to display it
+  ```
   <ionic2-calendar></ionic2-calendar>
+  ```
 
 ## Calendar Month View 
 - Grid base UI (not table)
@@ -70,6 +74,6 @@ Xcode version: Xcode 7.3.1 Build version 7D1014
 
 #Update 
 - 6th Aug 2016:   update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
-- 181h Nov 2016:  update npm version 0.0.1
+- 18th Nov 2016:  update npm version 0.0.1
 
 

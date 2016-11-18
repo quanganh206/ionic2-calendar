@@ -1,6 +1,6 @@
 {
     "name": "ionic2-calendar2",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "ionic2 calendar ",
     "main": "index.js",
     "scripts": {
