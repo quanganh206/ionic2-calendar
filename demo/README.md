@@ -11,7 +11,7 @@
 <img src="http://i1320.photobucket.com/albums/u521/quanganh206/Screen%20Shot%202016-08-06%20at%202.23.53%20PM_zpsgzcpcusf.png" align="left" width="25%"/>
 
 # Setup and Running 
-- npm install -g ionic@beta
+- npm install -g ionic
 - git clone https://github.com/quanganh206/ionic2-calendar
 - npm install 
 - typings install
@@ -45,7 +45,7 @@
 - [ ] Calendar Day View
 - [ ] Configuration
 - [ ] Swipe to change Month, Week, Day view
-- [ ] npm install and use directly  
+- [x] npm install and use directly  
 
 # Environment 
 ```
@@ -64,6 +64,6 @@ Xcode version: Xcode 7.3.1 Build version 7D1014
 
 #Update 
 - 6th Aug 2016: update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
-
+- 181h Nov 2016: update npm version 0.0.1
 
 

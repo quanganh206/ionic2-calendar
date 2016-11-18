@@ -1,0 +1,208 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/6.3.1/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'unpublish',
+1 verbose cli   '--force' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 warn using --force I sure hope you know what you are doing.
+5 silly unpublish args[0] undefined
+6 silly unpublish thing {}
+7 verbose unpublish { name: 'ionic2-calendar2',
+7 verbose unpublish   version: '0.0.1',
+7 verbose unpublish   description: 'ionic2 calendar ',
+7 verbose unpublish   main: 'index.js',
+7 verbose unpublish   scripts:
+7 verbose unpublish    { test: 'echo "Error: no test specified" && exit 1',
+7 verbose unpublish      build: 'rm -rf dist && tsc',
+7 verbose unpublish      start: 'tsc && concurrently "tsc -w" "lite-server" ',
+7 verbose unpublish      lite: 'lite-server',
+7 verbose unpublish      tsc: 'tsc',
+7 verbose unpublish      'tsc:w': 'tsc -w' },
+7 verbose unpublish   repository:
+7 verbose unpublish    { type: 'git',
+7 verbose unpublish      url: 'git+https://github.com/quanganh206/ionic2-calendar.git' },
+7 verbose unpublish   keywords: [ 'ionic2', 'calendar', 'angular2' ],
+7 verbose unpublish   author: { name: 'quanganh@aiti.com.vn' },
+7 verbose unpublish   license: 'MIT',
+7 verbose unpublish   bugs: { url: 'https://github.com/quanganh206/ionic2-calendar/issues' },
+7 verbose unpublish   homepage: 'https://github.com/quanganh206/ionic2-calendar#readme',
+7 verbose unpublish   devDependencies:
+7 verbose unpublish    { '@angular/common': '2.1.1',
+7 verbose unpublish      '@angular/compiler': '2.1.1',
+7 verbose unpublish      '@angular/compiler-cli': '2.1.1',
+7 verbose unpublish      '@angular/core': '2.1.1',
+7 verbose unpublish      '@angular/forms': '2.1.1',
+7 verbose unpublish      '@angular/http': '2.1.1',
+7 verbose unpublish      '@angular/platform-browser': '2.1.1',
+7 verbose unpublish      '@angular/platform-browser-dynamic': '2.1.1',
+7 verbose unpublish      '@angular/platform-server': '2.1.1',
+7 verbose unpublish      '@angular/router': '3.1.1',
+7 verbose unpublish      '@angular/upgrade': '2.1.1',
+7 verbose unpublish      'core-js': '2.1.1',
+7 verbose unpublish      'reflect-metadata': '^0.1.8',
+7 verbose unpublish      rxjs: '5.0.0-beta.12',
+7 verbose unpublish      systemjs: '0.19.39',
+7 verbose unpublish      'zone.js': '0.6.21',
+7 verbose unpublish      '@types/core-js': '^0.9.34',
+7 verbose unpublish      '@types/node': '^6.0.45',
+7 verbose unpublish      concurrently: '^3.0.0',
+7 verbose unpublish      'lite-server': '^2.2.2',
+7 verbose unpublish      'ionic-angular': '2.0.0-rc.2',
+7 verbose unpublish      'systemjs-builder': '^0.15.16',
+7 verbose unpublish      traceur: '^0.0.91',
+7 verbose unpublish      typescript: '^2.0.3' },
+7 verbose unpublish   dependencies:
+7 verbose unpublish    { '@angular/common': '2.1.1',
+7 verbose unpublish      '@angular/compiler': '2.1.1',
+7 verbose unpublish      '@angular/core': '2.1.1',
+7 verbose unpublish      '@angular/forms': '2.1.1',
+7 verbose unpublish      '@angular/http': '2.1.1',
+7 verbose unpublish      '@angular/platform-browser': '2.1.1',
+7 verbose unpublish      '@angular/platform-browser-dynamic': '2.1.1',
+7 verbose unpublish      '@angular/router': '3.1.1',
+7 verbose unpublish      '@angular/upgrade': '2.1.1',
+7 verbose unpublish      'core-js': '2.1.1',
+7 verbose unpublish      'reflect-metadata': '^0.1.8',
+7 verbose unpublish      rxjs: '5.0.0-beta.12',
+7 verbose unpublish      systemjs: '0.19.39',
+7 verbose unpublish      'zone.js': '0.6.21' },
+7 verbose unpublish   readme: '# ionic2-calendar\n\n[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=quanganh%40aiti%2ecom%2evn&lc=VN&item_name=Ionic2%20Calendar&item_number=ionic2calendar&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest)\n\n- That project support base calendar directive with Month, Week, Day views that can easy to integrate with your mobile app.\n\n- It\'s just for fun and expose a part my research on calendar processing with Google Calendar, Apple Calendar, iCalendar, etc.\n\n- Some source in that library should be easy to apply but maybe hard to extends to adapt on what you need. It\'s a message for user want developer extend that library and think about it does 80% work. The rest, 20% hardest things for your developer so should play nice. :D\n\n<img src="http://i1320.photobucket.com/albums/u521/quanganh206/Screen%20Shot%202016-08-06%20at%202.23.53%20PM_zpsgzcpcusf.png" align="left" width="25%"/>\n\n# Setup and Running \n- npm install -g ionic\n- git clone https://github.com/quanganh206/ionic2-calendar\n- npm install \n- npm build \n\n# Using \n- npm install ionic2-calendar2 --save (in ionic project folder)\n- in app.module.ts\n  import { Ionic2Calendar } from \'ionic2-calendar2\';\n  @NgModule({\n  declarations: [\n    ...\n    Ionic2Calendar,\n    ...\n  ],\n  providers: [\n    ...\n    Ionic2Calendar,\n    ...\n  ]\n})\n- Push component to anywhere you want to display it\n  <ionic2-calendar></ionic2-calendar>\n\n## Calendar Month View \n- Grid base UI (not table)\n- Expose date object directly for later use.\n\n## Calendar Week View\n- will update soon\n\n## Calendar Day View \n- will update soon\n\n# Todo List\n- [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)\n- [ ] Calendar Week View\n- [ ] Calendar Day View\n- [ ] Configuration\n- [ ] Swipe to change Month, Week, Day view\n- [x] npm install and use directly  \n\n# Environment \n```\nCordova CLI: 6.3.0\nGulp version:  CLI version 1.2.1\nGulp local:   Local version 3.9.1\nIonic Framework Version: 2.0.0-beta.10\nIonic CLI Version: 2.0.0-beta.32\nIonic App Lib Version: 2.0.0-beta.18\nios-deploy version: 1.8.6 \nios-sim version: 5.0.8 \nOS: Mac OS X El Capitan\nNode Version: v6.2.0\nXcode version: Xcode 7.3.1 Build version 7D1014\n```\n\n#Update \n- 6th Aug 2016:   update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.\n- 181h Nov 2016:  update npm version 0.0.1\n\n\n',
+7 verbose unpublish   readmeFilename: 'README.md',
+7 verbose unpublish   gitHead: 'ee3ddc2354599d27630ff47cd22bffdaba77d325',
+7 verbose unpublish   _id: 'ionic2-calendar2@0.0.1' }
+8 verbose getPublishConfig undefined
+9 silly ls normalized ionic2-calendar2/0.0.1
+10 silly gentlyRm /Users/anhlq/.npm/ionic2-calendar2/0.0.1 is being purged
+11 verbose gentlyRm don't care about contents; nuking /Users/anhlq/.npm/ionic2-calendar2/0.0.1
+12 silly vacuum-fs purging /Users/anhlq/.npm/ionic2-calendar2/0.0.1
+13 silly vacuum-fs quitting because other entries in /Users/anhlq/.npm/ionic2-calendar2
+14 silly mapToRegistry name ionic2-calendar2
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry data Result {
+17 silly mapToRegistry   raw: 'ionic2-calendar2',
+17 silly mapToRegistry   scope: null,
+17 silly mapToRegistry   escapedName: 'ionic2-calendar2',
+17 silly mapToRegistry   name: 'ionic2-calendar2',
+17 silly mapToRegistry   rawSpec: '',
+17 silly mapToRegistry   spec: 'latest',
+17 silly mapToRegistry   type: 'tag' }
+18 silly mapToRegistry uri https://registry.npmjs.org/ionic2-calendar2
+19 verbose get GET as part of write; not caching result
+20 verbose request uri https://registry.npmjs.org/ionic2-calendar2?write=true
+21 verbose request no auth needed
+22 info attempt registry request try #1 at 11:11:18 AM
+23 verbose request using bearer token for auth
+24 verbose request id 8ab5ecc5b0d023ff
+25 http request GET https://registry.npmjs.org/ionic2-calendar2?write=true
+26 http 200 https://registry.npmjs.org/ionic2-calendar2?write=true
+27 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   etag: '"582c1733-6720"',
+27 verbose headers   'content-encoding': 'gzip',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'transfer-encoding': 'chunked',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   date: 'Fri, 18 Nov 2016 04:11:19 GMT',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   connection: 'keep-alive',
+27 verbose headers   'x-served-by': 'cache-sin6924-SIN',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1479442278.765354,VS0,VE250',
+27 verbose headers   vary: 'Accept-Encoding' }
+28 silly get cb [ 200,
+28 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly get     'content-type': 'application/json',
+28 silly get     etag: '"582c1733-6720"',
+28 silly get     'content-encoding': 'gzip',
+28 silly get     'cache-control': 'max-age=0',
+28 silly get     'transfer-encoding': 'chunked',
+28 silly get     'accept-ranges': 'bytes',
+28 silly get     date: 'Fri, 18 Nov 2016 04:11:19 GMT',
+28 silly get     via: '1.1 varnish',
+28 silly get     connection: 'keep-alive',
+28 silly get     'x-served-by': 'cache-sin6924-SIN',
+28 silly get     'x-cache': 'MISS',
+28 silly get     'x-cache-hits': '0',
+28 silly get     'x-timer': 'S1479442278.765354,VS0,VE250',
+28 silly get     vary: 'Accept-Encoding' } ]
+29 verbose get saving ionic2-calendar2 to /Users/anhlq/.npm/registry.npmjs.org/ionic2-calendar2_3Fwrite_3Dtrue/.cache.json
+30 verbose correctMkdir /Users/anhlq/.npm correctMkdir not in flight; initializing
+31 verbose unpublish removing attachments { shasum: 'a9d630d0e013c47ebb8185ecebe6dd0f3b4fe0f1',
+31 verbose unpublish   tarball: 'http://registry.npmjs.org/ionic2-calendar2/-/ionic2-calendar2-0.0.1.tgz' }
+32 verbose request uri https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+33 verbose request sending authorization for write operation
+34 info attempt registry request try #1 at 11:11:19 AM
+35 verbose request using bearer token for auth
+36 http request PUT https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+37 http 500 https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+38 verbose headers { 'content-type': 'application/json',
+38 verbose headers   'cache-control': 'max-age=0',
+38 verbose headers   'content-length': '80',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   date: 'Fri, 18 Nov 2016 04:11:21 GMT',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-served-by': 'cache-sin6924-SIN',
+38 verbose headers   'x-cache': 'MISS',
+38 verbose headers   'x-cache-hits': '0',
+38 verbose headers   'x-timer': 'S1479442280.024393,VS0,VE1543' }
+39 info retry will retry, error on last attempt: Error: "cannot unpublish a version that is >24 hours old" : ionic2-calendar2
+40 info attempt registry request try #2 at 11:11:31 AM
+41 verbose request using bearer token for auth
+42 http request PUT https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+43 http 500 https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+44 verbose headers { 'content-type': 'application/json',
+44 verbose headers   'cache-control': 'max-age=0',
+44 verbose headers   'content-length': '80',
+44 verbose headers   'accept-ranges': 'bytes',
+44 verbose headers   date: 'Fri, 18 Nov 2016 04:11:32 GMT',
+44 verbose headers   via: '1.1 varnish',
+44 verbose headers   connection: 'keep-alive',
+44 verbose headers   'x-served-by': 'cache-sin6924-SIN',
+44 verbose headers   'x-cache': 'MISS',
+44 verbose headers   'x-cache-hits': '0',
+44 verbose headers   'x-timer': 'S1479442291.784812,VS0,VE932' }
+45 info retry will retry, error on last attempt: Error: "cannot unpublish a version that is >24 hours old" : ionic2-calendar2
+46 info attempt registry request try #3 at 11:12:32 AM
+47 verbose request using bearer token for auth
+48 http request PUT https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+49 http 500 https://registry.npmjs.org/ionic2-calendar2/-rev/12-409ce9cfd2c81b5dd77683e7c1de1ab7
+50 verbose headers { 'content-type': 'application/json',
+50 verbose headers   'cache-control': 'max-age=0',
+50 verbose headers   'content-length': '80',
+50 verbose headers   'accept-ranges': 'bytes',
+50 verbose headers   date: 'Fri, 18 Nov 2016 04:12:34 GMT',
+50 verbose headers   via: '1.1 varnish',
+50 verbose headers   connection: 'keep-alive',
+50 verbose headers   'x-served-by': 'cache-sin6924-SIN',
+50 verbose headers   'x-cache': 'MISS',
+50 verbose headers   'x-cache-hits': '0',
+50 verbose headers   'x-timer': 'S1479442353.155876,VS0,VE905' }
+51 verbose request invalidating /Users/anhlq/.npm/registry.npmjs.org/ionic2-calendar2 on PUT
+52 error unpublish Failed to update data
+53 verbose stack Error: "cannot unpublish a version that is >24 hours old" : ionic2-calendar2
+53 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+53 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+53 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+53 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+53 verbose stack     at emitTwo (events.js:106:13)
+53 verbose stack     at Request.emit (events.js:191:7)
+53 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+53 verbose stack     at emitOne (events.js:101:20)
+53 verbose stack     at Request.emit (events.js:188:7)
+53 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+54 verbose statusCode 500
+55 verbose pkgid ionic2-calendar2
+56 verbose cwd /Users/anhlq/working/active/ionic2-calendar/ionic2-calendar2
+57 error Darwin 16.1.0
+58 error argv "/usr/local/Cellar/node/6.3.1/bin/node" "/usr/local/bin/npm" "unpublish" "--force"
+59 error node v6.3.1
+60 error npm  v3.10.3
+61 error code E500
+62 error "cannot unpublish a version that is >24 hours old" : ionic2-calendar2
+63 error If you need help, you may report this error at:
+63 error     <https://github.com/npm/npm/issues>
+64 verbose exit [ 1, true ]
