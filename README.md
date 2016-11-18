@@ -18,26 +18,30 @@
 
 # Using 
 - npm install ionic2-calendar2 --save (in ionic project folder)
+
 - in app.module.ts
-  ```
-  import { Ionic2Calendar } from 'ionic2-calendar2';
-  @NgModule({
-    declarations: [
-      ...
-      Ionic2Calendar,
-      ...
-    ],
-    providers: [
-      ...
-      Ionic2Calendar,
-      ...
-    ]
-  })
-  ```
+
+```
+import { Ionic2Calendar } from 'ionic2-calendar2';
+@NgModule({
+  declarations: [
+    ...
+    Ionic2Calendar,
+    ...
+  ],
+  providers: [
+    ...
+    Ionic2Calendar,
+    ...
+  ]
+})
+```
+
 - Push component to anywhere you want to display it
-  ```
-  <ionic2-calendar></ionic2-calendar>
-  ```
+
+```
+<ionic2-calendar></ionic2-calendar>
+```
 
 ## Calendar Month View 
 - Grid base UI (not table)
