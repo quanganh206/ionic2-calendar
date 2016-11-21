@@ -63,17 +63,17 @@ import { Ionic2Calendar } from 'ionic2-calendar2';
 
 # Environment 
 ```
-Cordova CLI: 6.3.0
-Gulp version:  CLI version 1.2.1
-Gulp local:   Local version 3.9.1
-Ionic Framework Version: 2.0.0-beta.10
-Ionic CLI Version: 2.0.0-beta.32
-Ionic App Lib Version: 2.0.0-beta.18
-ios-deploy version: 1.8.6 
+Cordova CLI: 6.4.0
+Gulp version:  CLI version 1.2.2
+Gulp local:  
+Ionic Framework Version: 2.0.0-rc.2
+Ionic CLI Version: 2.1.4
+Ionic App Lib Version: 2.1.2
+ios-deploy version: 1.9.0 
 ios-sim version: 5.0.8 
-OS: Mac OS X El Capitan
-Node Version: v6.2.0
-Xcode version: Xcode 7.3.1 Build version 7D1014
+OS: Mac OS X Sierra
+Node Version: v6.3.1
+Xcode version: Xcode 8.0 Build version 8A218a 
 ```
 
 #Update 
