@@ -1,9 +1,13 @@
 # `ionic2-calendar2` 
 # (x)Cross Mobile Engine: Ionic2 Calendar Component
 
-> All related information and structure about users and user types.
+> [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=quanganh%40aiti%2ecom%2evn&lc=VN&item_name=Ionic2%20Calendar&item_number=ionic2calendar&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest)
 
-This public project contains UI Calendar library. The library itself is a small piece and general to help extend with other projects. 
+- That project support base calendar directive with Month, Week, Day views that can easy to integrate with your mobile app.
+
+- It's just for fun and expose a part my research on calendar processing with Google Calendar, Apple Calendar, iCalendar, etc.
+
+- Some source in that library should be easy to apply but maybe hard to extends to adapt on what you need. It's a message for user want developer extend that library and think about it does 80% work. The rest, 20% hardest things for your developer so should play nice. :D 
 
 > [Read more](https://quanganh206.github.io/ionic2-calendar/) about **source code**, **class** used in this repository.
 
@@ -36,10 +40,10 @@ imports: [
 - You can config moment locale from outside to localize calendar information.
 
 ## Calendar Week View
-- will update soon
+- will update with (50 stars)
 
 ## Calendar Day View 
-- will update soon
+- will update with (150 stars)
 
 # Todo List
 - [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)
