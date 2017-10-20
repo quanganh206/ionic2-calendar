@@ -68,7 +68,7 @@ Misc:
 # Contributors
 - Quang Anh LE (Arkay Lee)
 
-#Update 
-- 20th Oct 2017: update new source base 0.1.3
-- 18th Nov 2016:  update npm version 0.0.1
-- 6th Aug 2016:   update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
+# Update 
+- 20th Oct 2017:    update new source base 0.1.3, new UI look n feel
+- 18th Nov 2016:    update npm version 0.0.1
+- 6th Aug 2016:     update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
