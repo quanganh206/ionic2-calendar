@@ -1,0 +1,23 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    {{niceMonth(current)}}
+  </div>
+  <div class="calendar-body">
+    <div class="calendar-week-header">
+      <div class="calendar-day-header" *ngFor="let head of wHeads">
+        {{head}}
+      </div>
+    </div>
+    <div id="slider" class="month-slider" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
+      <div class="calendar-week" *ngFor="let week of month; let i = index;">
+        <div class="calendar-day-wrapper" *ngFor="let day of week" [class.diff-month]="diffMonth(day)" (click)="selectDay(day)">
+          <div class="calendar-day" [class.today]="isToday(day)" [class.selected]="day.selected === true">
+            {{day.day | date: 'dd'}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calendar-footer">
+  </div>
+</div>

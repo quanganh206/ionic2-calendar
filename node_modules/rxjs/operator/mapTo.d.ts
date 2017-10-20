@@ -12,7 +12,7 @@ import { Observable } from '../Observable';
  * Observable emits a value. In other words, ignores the actual source value,
  * and simply uses the emission moment to know when to emit the given `value`.
  *
- * @example <caption>Map every every click to the string 'Hi'</caption>
+ * @example <caption>Map every click to the string 'Hi'</caption>
  * var clicks = Rx.Observable.fromEvent(document, 'click');
  * var greetings = clicks.mapTo('Hi');
  * greetings.subscribe(x => console.log(x));
@@ -25,7 +25,4 @@ import { Observable } from '../Observable';
  * @method mapTo
  * @owner Observable
  */
-export declare function mapTo<T, R>(value: R): Observable<R>;
-export interface MapToSignature<T> {
-    <R>(value: R): Observable<R>;
-}
+export declare function mapTo<T, R>(this: Observable<T>, value: R): Observable<R>;

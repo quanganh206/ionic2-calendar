@@ -1,22 +1,27 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+import {attachOriginToPatched, isBrowser, isMix} from '../common/utils';
+
 import {_redefineProperty} from './define-property';
-import {isBrowser} from '../common/utils';
 
 export function registerElementPatch(_global: any) {
-  if (!isBrowser || !('registerElement' in (<any>_global).document)) {
+  if ((!isBrowser && !isMix) || !('registerElement' in (<any>_global).document)) {
     return;
   }
 
   const _registerElement = (<any>document).registerElement;
-  const callbacks = [
-    'createdCallback',
-    'attachedCallback',
-    'detachedCallback',
-    'attributeChangedCallback'
-  ];
+  const callbacks =
+      ['createdCallback', 'attachedCallback', 'detachedCallback', 'attributeChangedCallback'];
 
-  (<any>document).registerElement = function (name, opts) {
+  (<any>document).registerElement = function(name: any, opts: any) {
     if (opts && opts.prototype) {
-      callbacks.forEach(function (callback) {
+      callbacks.forEach(function(callback) {
         const source = 'Document.registerElement::' + callback;
         if (opts.prototype.hasOwnProperty(callback)) {
           const descriptor = Object.getOwnPropertyDescriptor(opts.prototype, callback);
@@ -34,4 +39,6 @@ export function registerElementPatch(_global: any) {
 
     return _registerElement.apply(document, [name, opts]);
   };
+
+  attachOriginToPatched((<any>document).registerElement, _registerElement);
 }

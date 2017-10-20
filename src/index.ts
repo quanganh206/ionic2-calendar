@@ -1,0 +1,1 @@
+export { CalendarModule, CalendarComponent } from './calendar'

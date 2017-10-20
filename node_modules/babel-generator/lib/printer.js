@@ -340,8 +340,6 @@ var Printer = function () {
   };
 
   Printer.prototype.getPossibleRaw = function getPossibleRaw(node) {
-    if (this.format.minified) return;
-
     var extra = node.extra;
     if (extra && extra.raw != null && extra.rawValue != null && node.value === extra.rawValue) {
       return extra.raw;

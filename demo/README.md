@@ -1,69 +1,116 @@
-# ionic2-calendar
+# `angular-library-seed` demo projects
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=quanganh%40aiti%2ecom%2evn&lc=VN&item_name=Ionic2%20Calendar&item_number=ionic2calendar&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest)
+> This folder contains two demo-projects (`esm` and `umd` folders) for [angular-library-seed](https://github.com/trekhleb/angular-library-seed). These demo projects may help you to test whether your library supports AOT/JIT/UMD builds or not.
+>
+> - `esm` folder contains Angular project that is built using [@angular/compiler](https://www.npmjs.com/package/@angular/compiler) and [Webpack](https://webpack.js.org/). This demo project utilizes ESM (pure ES2015) sources of your library to do two kind of compilations:
+>   - [AOT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) (ahead-of-time) compilation.
+>   - [JIT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) (just-in-time) compilation.
+>
+> - `umd` folder contains Angular project that is being built and assembled in browser by [SystemJS](https://github.com/systemjs/systemjs). This demo project utilizes [UMD](https://github.com/umdjs/umd) bundle of your library.
 
-- That project support base calendar directive with Month, Week, Day views that can easy to integrate with your mobile app.
+Demo-projects are created as an alternative to `npm link` command. You may simply delete this `demo` folder if you prefer to use [yarn link](https://yarnpkg.com/en/docs/cli/link) instead to check how your library is being built.
 
-- It's just for fun and expose a part my research on calendar processing with Google Calendar, Apple Calendar, iCalendar, etc.
+# Quick Start
 
-- Some source in that library should be easy to apply but maybe hard to extends to adapt on what you need. It's a message for user want developer extend that library and think about it does 80% work. The rest, 20% hardest things for your developer so should play nice. :D
+```bash
+# Assuming the you are already in angular-library-seed/demo folder
 
-<img src="http://i1320.photobucket.com/albums/u521/quanganh206/Screen%20Shot%202016-08-06%20at%202.23.53%20PM_zpsgzcpcusf.png" align="left" width="25%"/>
+# Install all dependencies
+yarn install
 
-# Setup and Running 
-- npm install -g ionic
-- git clone https://github.com/quanganh206/ionic2-calendar
-- npm install 
-- typings install
-- ionic server (to run test) 
+# Start watching library dist folder and do JIT project build in watch mode.
+yarn start
 
-# Using 
-- I can not find a good way to expose it as stand-alone ionic2 directive and user just npm install and use. 
-- Now you can re-use that directive in following way:
-  1. copy [directive] folder into your [app] folder.
-  2. In your page 
-    - import { CalendarComponent } from '../../directive/calendar/calendar';
-    - @Component({
-        ...
-        directives: [CalendarComponent]
-      })
-  3. Push ionic2-calendar tag to anywhere you want calendar to display. 
-
-## Calendar Month View 
-- Grid base UI (not table)
-- Expose date object directly for later use.
-
-## Calendar Week View
-- will update soon
-
-## Calendar Day View 
-- will update soon
-
-# Todo List
-- [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)
-- [ ] Calendar Week View
-- [ ] Calendar Day View
-- [ ] Configuration
-- [ ] Swipe to change Month, Week, Day view
-- [x] npm install and use directly  
-
-# Environment 
-```
-Cordova CLI: 6.3.0
-Gulp version:  CLI version 1.2.1
-Gulp local:   Local version 3.9.1
-Ionic Framework Version: 2.0.0-beta.10
-Ionic CLI Version: 2.0.0-beta.32
-Ionic App Lib Version: 2.0.0-beta.18
-ios-deploy version: 1.8.6 
-ios-sim version: 5.0.8 
-OS: Mac OS X El Capitan
-Node Version: v6.2.0
-Xcode version: Xcode 7.3.1 Build version 7D1014
+# Or you may simply build AOT/JIT/UMD versions all at once by running the following command
+yarn build
 ```
 
-#Update 
-- 6th Aug 2016: update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
-- 181h Nov 2016: update npm version 0.0.1
+# File Structure
 
+```
+angular-library-seed
+  └─ demo                           * Folder for demo applications (MAY BE DELETED if not required) 
+     ├─ esm                         * AOT/JIT demo project
+     |  └─ dist                     * This folder will contain project ESM builds
+     |  |  ├─ aot                   * This folder contains project build made via AOT compilation
+     |  |  |  └─ index.html         * <-- RUN THIS FILE TO CHECK AOT BUILD
+     |  |  |
+     |  |  └─ jit                   * This folder contains project build made via JIT compilation
+     |  |     └─ index.html         * <-- RUN THIS FILE TO CHECK JIT BUILD
+     |  |
+     |  ├─ lib                      * Temporary folder with a copy of your library built sources
+     |  ├─ src
+     |  |  ├─ app                   * Demo application sources. Adopt them with your library.
+     |  |  ├─ index.ejs             * Main application template.
+     |  |  ├─ main-aot.ts           * AOT main entry.
+     |  |  ├─ main-jit.ts           * JIT main entry.
+     |  |  └─ polyfills.browser.ts  * Browser polyfills.
+     |  |
+     |  ├─ tsconfig-aot.json        * TypeScript configuration for AOT build.
+     |  ├─ tsconfig.json            * TypeScript configuration for JIT build.
+     |  ├─ webpack-aot.config.js    * Webpack configuration for AOT build.
+     |  └─ webpack.config.js        * Webpack configuration for JIT build.
+     |   
+     ├─ umd                         * UMD demo project
+     |  ├─ app                      * Demo application sources. Adopt them with your library.
+     |  ├─ lib                      * Temporary folder with a copy of your library built sources
+     |  ├─ index.html               * <-- RUN THIS FILE TO CHECK UMD BUILD
+     |  ├─ main.ts                  * Main application entry file.
+     |  └─ systemjs.config.js       * SystemJS configuration.
+     |   
+     ├─ .gitignore                  * List of files that are ignored while publishing to git repository
+     ├─ gulpfile.js                 * Gulp helper scripts for building demos
+     ├─ package.json                * NPM dependencies and helper scripts for building demos
+     └─ yarn.lock                   * Yarn dependency versions lock for demo applications
+```
 
+# Getting Started
+
+## Dependencies
+
+#### Node/NPM
+Install latest Node and NPM following the [instructions](https://nodejs.org/en/download/). Make sure you have Node version ≥ 7.0 and NPM ≥ 4.
+
+- `brew install node` for Mac.
+
+#### Yarn
+Install Yarn by following the [instructions](https://yarnpkg.com/en/docs/install).
+
+- `brew install yarn` for Mac.
+
+## Installing
+- Switch to `demo` folder in your console.
+- `yarn install` to install required dependencies.
+
+## Replace `TickTock` library related code with your own library tags and imports
+This step may be optional at first since you might just want to build demo projects with TickTock library example.
+
+Once you're ready to develop your own library you should do the following.
+- Adjust source codes of `angular-library-seed/demo/esm/src/app/*.ts` files for AOT/JIT builds.
+- Adjust source codes of `angular-library-seed/demo/umd/app/*.ts` files for UMD builds.
+
+## Build demo projects
+- `yarn build` for building AOT, JIT and UMD demo versions all at once.
+
+You may also build projects separately:
+- `yarn build:jit` - for building JIT version of demo project.
+- `yarn build:aot` - for building AOT version of demo project.
+- `yarn build:umd` - for building UMD version of demo project.
+
+To see your library in action launch the following files in your browser:
+- `angular-library-seed/demo/esm/dist/jit/index.html` file for JIT build
+- `angular-library-seed/demo/esm/dist/aot/index.html` file for AOT build
+- `angular-library-seed/demo/umd/index.html` file for UMD build
+
+## Build JIT project in watch mode
+- `yarn start` for building JIT version of demo project and start watching for library changes.
+
+This command may be used simultaneously in combination with [angular-library-seed](https://github.com/trekhleb/angular-library-seed)'s `yarn build:watch`. As a result once you change library source code it will be automatically re-compiled and in turn your JIT demo-project will be automatically re-built and you will be able to see that changes in your browser instantly. 
+
+See [Development Workflow](https://github.com/trekhleb/angular-library-seed#development-workflow) section of [angular-library-seed](https://github.com/trekhleb/angular-library-seed)'s README for more details.
+
+## Other commands
+
+#### Cleaning
+- `yarn clean:tmp` command will clean up all temporary files like `dist`, `lib`, `*.ngsummary.json` etc.
+- `yarn clean:all` command will clean up all temporary files along with `node_modules` folder. 

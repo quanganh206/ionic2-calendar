@@ -44,7 +44,15 @@
 "use strict";
 
 function find_builtins() {
-    var a = [];
+    // NaN will be included due to Number.NaN
+    var a = [
+        "null",
+        "true",
+        "false",
+        "Infinity",
+        "-Infinity",
+        "undefined",
+    ];
     [ Object, Array, Function, Number,
       String, Boolean, Error, Math,
       Date, RegExp
@@ -62,11 +70,12 @@ function find_builtins() {
 
 function mangle_properties(ast, options) {
     options = defaults(options, {
-        reserved : null,
-        cache : null,
-        only_cache : false,
-        regex : null,
-        ignore_quoted : false
+        cache: null,
+        debug: false,
+        ignore_quoted: false,
+        only_cache: false,
+        regex: null,
+        reserved: null,
     });
 
     var reserved = options.reserved;
@@ -83,6 +92,15 @@ function mangle_properties(ast, options) {
 
     var regex = options.regex;
     var ignore_quoted = options.ignore_quoted;
+
+    // note debug is either false (disabled), or a string of the debug suffix to use (enabled).
+    // note debug may be enabled as an empty string, which is falsey. Also treat passing 'true'
+    // the same as passing an empty string.
+    var debug = (options.debug !== false);
+    var debug_name_suffix;
+    if (debug) {
+        debug_name_suffix = (options.debug === true ? "" : options.debug);
+    }
 
     var names_to_mangle = [];
     var unmangleable = [];
@@ -144,7 +162,7 @@ function mangle_properties(ast, options) {
         if (options.only_cache) {
             return cache.props.has(name);
         }
-        if (/^[0-9.]+$/.test(name)) return false;
+        if (/^-?[0-9]+(\.[0-9]+)?(e[+-][0-9]+)?$/.test(name)) return false;
         return true;
     }
 
@@ -177,9 +195,25 @@ function mangle_properties(ast, options) {
 
         var mangled = cache.props.get(name);
         if (!mangled) {
-            do {
-                mangled = base54(++cache.cname);
-            } while (!can_mangle(mangled));
+            if (debug) {
+                // debug mode: use a prefix and suffix to preserve readability, e.g. o.foo -> o._$foo$NNN_.
+                var debug_mangled = "_$" + name + "$" + debug_name_suffix + "_";
+
+                if (can_mangle(debug_mangled) && !(ignore_quoted && debug_mangled in ignored)) {
+                    mangled = debug_mangled;
+                }
+            }
+
+            // either debug mode is off, or it is on and we could not use the mangled name
+            if (!mangled) {
+                // note can_mangle() does not check if the name collides with the 'ignored' set
+                // (filled with quoted properties when ignore_quoted set). Make sure we add this
+                // check so we don't collide with a quoted name.
+                do {
+                    mangled = base54(++cache.cname);
+                } while (!can_mangle(mangled) || (ignore_quoted && mangled in ignored));
+            }
+
             cache.props.set(name, mangled);
         }
         return mangled;

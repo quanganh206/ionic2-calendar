@@ -1,3 +1,25 @@
-node_modules/
+# Node
+node_modules
+npm-debug.log
+
+# Yarn
+yarn-error.log
+
+# JetBrains
+.idea/
+
+# VS Code
 .vscode/
-npm-debug.log*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# Temporary files
+coverage/
+dist
+docs
+tmp

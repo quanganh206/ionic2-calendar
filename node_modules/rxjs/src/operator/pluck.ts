@@ -14,7 +14,7 @@ import { map } from './map';
  * Observable. If a property can't be resolved, it will return `undefined` for
  * that value.
  *
- * @example <caption>Map every every click to the tagName of the clicked target element</caption>
+ * @example <caption>Map every click to the tagName of the clicked target element</caption>
  * var clicks = Rx.Observable.fromEvent(document, 'click');
  * var tagNames = clicks.pluck('target', 'tagName');
  * tagNames.subscribe(x => console.log(x));
@@ -23,21 +23,16 @@ import { map } from './map';
  *
  * @param {...string} properties The nested properties to pluck from each source
  * value (an object).
- * @return {Observable} Returns a new Observable of property values from the
- * source values.
+ * @return {Observable} A new Observable of property values from the source values.
  * @method pluck
  * @owner Observable
  */
-export function pluck<R>(...properties: string[]): Observable<R> {
+export function pluck<T, R>(this: Observable<T>, ...properties: string[]): Observable<R> {
   const length = properties.length;
   if (length === 0) {
     throw new Error('list of properties cannot be empty.');
   }
   return map.call(this, plucker(properties, length));
-}
-
-export interface PluckSignature<T> {
-  <R>(...properties: string[]): Observable<R>;
 }
 
 function plucker(props: string[], length: number): (x: string) => any {
