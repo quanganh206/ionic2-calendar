@@ -7,6 +7,7 @@
  */
 import { Injector } from '../di/injector';
 import { Type } from '../type';
+import { ComponentFactory } from './component_factory';
 import { ComponentFactoryResolver } from './component_factory_resolver';
 /**
  * Represents an instance of an NgModule created via a {@link NgModuleFactory}.
@@ -39,13 +40,33 @@ export declare abstract class NgModuleRef<T> {
      */
     abstract onDestroy(callback: () => void): void;
 }
-export interface InternalNgModuleRef<T> extends NgModuleRef<T> {
-    _bootstrapComponents: Type<any>[];
-}
 /**
  * @experimental
  */
-export declare abstract class NgModuleFactory<T> {
-    readonly abstract moduleType: Type<T>;
-    abstract create(parentInjector: Injector | null): NgModuleRef<T>;
+export declare class NgModuleFactory<T> {
+    private _injectorClass;
+    private _moduleType;
+    constructor(_injectorClass: {
+        new (parentInjector: Injector): NgModuleInjector<T>;
+    }, _moduleType: Type<T>);
+    readonly moduleType: Type<T>;
+    create(parentInjector: Injector | null): NgModuleRef<T>;
+}
+export declare abstract class NgModuleInjector<T> implements Injector, NgModuleRef<T> {
+    parent: Injector;
+    bootstrapFactories: ComponentFactory<any>[];
+    instance: T;
+    private _destroyListeners;
+    private _destroyed;
+    private _cmpFactoryResolver;
+    constructor(parent: Injector, factories: ComponentFactory<any>[], bootstrapFactories: ComponentFactory<any>[]);
+    create(): void;
+    abstract createInternal(): T;
+    get(token: any, notFoundValue?: any): any;
+    abstract getInternal(token: any, notFoundValue: any): any;
+    readonly injector: Injector;
+    readonly componentFactoryResolver: ComponentFactoryResolver;
+    destroy(): void;
+    onDestroy(callback: () => void): void;
+    abstract destroyInternal(): void;
 }

@@ -45,4 +45,5 @@ export declare class DefaultKeyValueDiffer<K, V> implements KeyValueDiffer<K, V>
     private _maybeAddToChanges(record, newValue);
     private _addToAdditions(record);
     private _addToChanges(record);
+    toString(): string;
 }

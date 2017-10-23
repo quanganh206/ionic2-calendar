@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export { MetadataWriterHost } from './src/compiler_host';
-export { CodegenExtension, UserError, createBundleIndexHost, main } from './src/main';
+export { CodegenExtension, UserError, main } from './src/main';
 export { default as AngularCompilerOptions } from './src/options';
 export * from './src/bundler';
 export * from './src/cli_options';
