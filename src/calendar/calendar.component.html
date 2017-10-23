@@ -1,6 +1,14 @@
 <div class="calendar-container">
   <div class="calendar-header">
-    {{niceMonth(current)}}
+    <div class="left" (click)="previousMonth()">
+      <span class="icon-left"></span>
+    </div>
+    <div class="month">
+      {{niceMonth(current)}}
+    </div>
+    <div class="right" (click)="nextMonth()">
+      <span class="icon-right"></span>
+    </div>
   </div>
   <div class="calendar-body">
     <div class="calendar-week-header">

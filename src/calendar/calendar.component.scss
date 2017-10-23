@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500');
+$fa-font-path:"../assets/css/fonts";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
+.icon-left {
+  @extend .fa;
+  @extend .fa-angle-left;
+  font-size: 1.8rem;
+}
+
+.icon-right {
+  @extend .fa;
+  @extend .fa-angle-right;
+  font-size: 1.8rem;
+}
 
 .calendar-container {
   width: 100%;
@@ -21,6 +35,33 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-right: 2px solid #2cc42c;
+    .left, .right {
+      flex: 1;
+    }
+    .month {
+      flex: 8;
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .left {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5vw;
+    }
+    .right {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 5vw;
+    }
   }
   .calendar-body {
     margin-top: -1px;
