@@ -100,13 +100,13 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
     var month = new Array();
     var firstDay = new Date(date);
     firstDay.setDate(1);
-    var firstDayNextMonth = new Date(date);
+    var firstDayNextMonth = new Date();
     if (firstDay.getMonth() < 11) {
+      firstDayNextMonth.setDate(1);
       firstDayNextMonth.setMonth(firstDay.getMonth() + 1);
-      firstDayNextMonth.setDate(1);
     } else {
-      firstDayNextMonth.setMonth(1);
       firstDayNextMonth.setDate(1);
+      firstDayNextMonth.setMonth(0);
     }
     var lastDay = new Date(date);
     lastDay.setTime(firstDayNextMonth.getTime() - (1 * 24 * 3600000));
@@ -125,27 +125,7 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
           if (dayCount < lastDay.getDate()) {
             var day = new Date();
             day.setTime(firstDay.getTime() + (dayCount * 24 * 3600000));
-            // if (this.today.getDate() === day.getDate()
-            //   && this.today.getMonth() === day.getMonth()) {
-            //   let oDay = { day: day, selected: false };
-            //   weekDay.push(oDay);
-            //   if (!this.setDay) {
-            //     this.selectedDay = oDay;
-            //   }
-            // } else {
-
-            // if (this.setDay) {
-            //   console.log(this.setDay.getDate() === day.getDate());
-            //   if (this.setDay.getDate() === day.getDate()
-            //     && this.setDay.getMonth() === day.getMonth()) {
-            //     let sDay = { day: this.setDay, selected: true };
-            //     weekDay.push(sDay);
-            //     this.selectedDay = sDay;
-            //   }
-            // } else {
             weekDay.push({ day: day, selected: false });
-            // }
-            // }
             dayCount++;
           } else {
             // next month date
@@ -224,8 +204,11 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
     let previous = new Date();
     let currentMonth = this.current.getMonth();
     if (currentMonth >= 1) {
+      previous.setDate(15);
       previous.setMonth(currentMonth - 1);
+      previous.setFullYear(this.current.getFullYear());
     } else {
+      previous.setDate(15);
       previous.setMonth(11);
       previous.setFullYear(this.current.getFullYear() - 1);
     }
@@ -241,8 +224,11 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
     let next = new Date();
     let currentMonth = this.current.getMonth();
     if (currentMonth < 11) {
+      next.setDate(15);
       next.setMonth(currentMonth + 1);
+      next.setFullYear(this.current.getFullYear());
     } else {
+      next.setDate(15);
       next.setMonth(0);
       next.setFullYear(this.current.getFullYear() + 1);
     }
