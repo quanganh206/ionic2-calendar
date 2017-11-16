@@ -47,8 +47,6 @@ imports: [
 
 # Todo List
 - [x] ~~Not directive or reusable component yet.~~ (updated 5th Aug 2016)
-- [ ] Calendar Week View
-- [ ] Calendar Day View
 - [x] Configuration
 - [x] Swipe to change Month, Week, Day view
 - [x] npm install and use directly  
@@ -56,8 +54,8 @@ imports: [
 # Environment
 cli packages: (/usr/local/lib/node_modules)
 
-    @ionic/cli-utils  : 1.12.0
-    ionic (Ionic CLI) : 3.12.0
+    @ionic/cli-utils  : 1.15.2
+    ionic (Ionic CLI) : 3.15.2
 
 System:
 
@@ -67,13 +65,27 @@ System:
 
 Misc:
 
-    backend : legacy
+    backend : pro
+
+# Common Error
+```bash
+# lack moment
+npm install moment --save
+# lack next previous month buttons
+npm install font-awaresome --save
+# Oganize font-awaresome resources in your ionic2 project to meet your desire.
+```
+
 
 # Contributors
 - Quang Anh LE (Arkay Lee)
 
 # Update 
+- 17th Nov 2017:    update dependencies Common Errors
+- 31th Oct 2017:    update dependencies angular 4.4.4, ionic 3.8
 - 23th Oct 2017:    update dependencies log4js, angular 4.3.1
 - 20th Oct 2017:    update new source base 0.1.3, new UI look n feel
 - 18th Nov 2016:    update npm version 0.0.1
-- 6th Aug 2016:     update template. Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
+- 6th Aug 2016:     update template. 
+
+Thank Kenneth Hou for an inspired calendar style https://dribbble.com/shots/1269664-Calendar-Screen.
