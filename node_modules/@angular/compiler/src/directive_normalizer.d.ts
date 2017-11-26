@@ -5,13 +5,13 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ViewEncapsulation } from '@angular/core';
-import { CompileAnimationEntryMetadata, CompileDirectiveMetadata, CompileStylesheetMetadata, CompileTemplateMetadata } from './compile_metadata';
+import { CompileDirectiveMetadata, CompileTemplateMetadata } from './compile_metadata';
 import { CompilerConfig } from './config';
+import { ViewEncapsulation } from './core';
 import { HtmlParser } from './ml_parser/html_parser';
 import { ResourceLoader } from './resource_loader';
 import { UrlResolver } from './url_resolver';
-import { SyncAsyncResult } from './util';
+import { SyncAsync } from './util';
 export interface PrenormalizedTemplateMetadata {
     ngModuleType: any;
     componentType: any;
@@ -22,7 +22,8 @@ export interface PrenormalizedTemplateMetadata {
     styleUrls: string[];
     interpolation: [string, string] | null;
     encapsulation: ViewEncapsulation | null;
-    animations: CompileAnimationEntryMetadata[];
+    animations: any[];
+    preserveWhitespaces: boolean | null;
 }
 export declare class DirectiveNormalizer {
     private _resourceLoader;
@@ -34,11 +35,12 @@ export declare class DirectiveNormalizer {
     clearCache(): void;
     clearCacheFor(normalizedDirective: CompileDirectiveMetadata): void;
     private _fetch(url);
-    normalizeTemplate(prenormData: PrenormalizedTemplateMetadata): SyncAsyncResult<CompileTemplateMetadata>;
-    normalizeTemplateSync(prenomData: PrenormalizedTemplateMetadata): CompileTemplateMetadata;
-    normalizeTemplateAsync(prenomData: PrenormalizedTemplateMetadata): Promise<CompileTemplateMetadata>;
-    normalizeLoadedTemplate(prenormData: PrenormalizedTemplateMetadata, template: string, templateAbsUrl: string): CompileTemplateMetadata;
-    normalizeExternalStylesheets(templateMeta: CompileTemplateMetadata): Promise<CompileTemplateMetadata>;
+    normalizeTemplate(prenormData: PrenormalizedTemplateMetadata): SyncAsync<CompileTemplateMetadata>;
+    private _preParseTemplate(prenomData);
+    private _preparseLoadedTemplate(prenormData, template, templateAbsUrl);
+    private _normalizeTemplateMetadata(prenormData, preparsedTemplate);
+    private _normalizeLoadedTemplateMetadata(prenormData, preparsedTemplate, stylesheets);
+    private _inlineStyles(styleUrls, stylesheets, targetStyles);
     private _loadMissingExternalStylesheets(styleUrls, loadedStylesheets?);
-    normalizeStylesheet(stylesheet: CompileStylesheetMetadata): CompileStylesheetMetadata;
+    private _normalizeStylesheet(stylesheet);
 }

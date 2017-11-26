@@ -5,7 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Pipe, Type, ɵReflectorReader } from '@angular/core';
+import { CompileReflector } from './compile_reflector';
+import { Pipe, Type } from './core';
 /**
  * Resolve a `Type` for {@link Pipe}.
  *
@@ -15,10 +16,10 @@ import { Pipe, Type, ɵReflectorReader } from '@angular/core';
  */
 export declare class PipeResolver {
     private _reflector;
-    constructor(_reflector?: ɵReflectorReader);
-    isPipe(type: Type<any>): boolean;
+    constructor(_reflector: CompileReflector);
+    isPipe(type: Type): boolean;
     /**
      * Return {@link Pipe} for a given `Type`.
      */
-    resolve(type: Type<any>, throwIfNotFound?: boolean): Pipe | null;
+    resolve(type: Type, throwIfNotFound?: boolean): Pipe | null;
 }

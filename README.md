@@ -54,26 +54,33 @@ imports: [
 # Environment
 cli packages: (/usr/local/lib/node_modules)
 
-    @ionic/cli-utils  : 1.15.2
-    ionic (Ionic CLI) : 3.15.2
+    @ionic/cli-utils  : 1.19.0
+    ionic (Ionic CLI) : 3.19.0
 
 System:
 
     Node : v8.4.0
-    npm  : 5.4.2 
+    npm  : 5.5.1 
     OS   : macOS Sierra
 
 Misc:
 
     backend : pro
 
-# Common Error
+# Common Errors
 ```bash
 # lack moment
 npm install moment --save
 # lack next previous month buttons
-npm install font-awaresome --save
-# Oganize font-awaresome resources in your ionic2 project to meet your desire.
+npm install font-awesome --save
+# Oganize font-awesome resources in your ionic2 project to meet your desire.
+project-root-folder
+  ├─ src                         
+  |  └─ assets                   
+  |     ├─ fonts    
+  |     └─ font-awesome              
+  └─ ...
+       
 ```
 
 
@@ -81,6 +88,7 @@ npm install font-awaresome --save
 - Quang Anh LE (Arkay Lee)
 
 # Update 
+- 26th Nov 2017:    update dependencies angular 5.0.0, ionic 3.9.2
 - 17th Nov 2017:    update dependencies Common Errors
 - 31th Oct 2017:    update dependencies angular 4.4.4, ionic 3.8
 - 23th Oct 2017:    update dependencies log4js, angular 4.3.1

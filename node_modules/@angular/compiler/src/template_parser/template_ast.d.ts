@@ -5,9 +5,11 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { SecurityContext, ɵLifecycleHooks as LifecycleHooks } from '@angular/core';
+import { AstPath } from '../ast_path';
 import { CompileDirectiveSummary, CompileProviderMetadata, CompileTokenMetadata } from '../compile_metadata';
+import { SecurityContext } from '../core';
 import { AST } from '../expression_parser/ast';
+import { LifecycleHooks } from '../lifecycle_reflector';
 import { ParseSourceSpan } from '../parse_util';
 /**
  * An Abstract Syntax Tree node representing part of a parsed Angular template.
@@ -63,9 +65,9 @@ export declare class BoundElementPropertyAst implements TemplateAst {
     value: AST;
     unit: string | null;
     sourceSpan: ParseSourceSpan;
+    readonly isAnimation: boolean;
     constructor(name: string, type: PropertyBindingType, securityContext: SecurityContext, value: AST, unit: string | null, sourceSpan: ParseSourceSpan);
     visit(visitor: TemplateAstVisitor, context: any): any;
-    readonly isAnimation: boolean;
 }
 /**
  * A binding for an element event (e.g. `(event)="handler()"`) or an animation trigger event (e.g.
@@ -78,10 +80,10 @@ export declare class BoundEventAst implements TemplateAst {
     handler: AST;
     sourceSpan: ParseSourceSpan;
     static calcFullName(name: string, target: string | null, phase: string | null): string;
-    constructor(name: string, target: string | null, phase: string | null, handler: AST, sourceSpan: ParseSourceSpan);
-    visit(visitor: TemplateAstVisitor, context: any): any;
     readonly fullName: string;
     readonly isAnimation: boolean;
+    constructor(name: string, target: string | null, phase: string | null, handler: AST, sourceSpan: ParseSourceSpan);
+    visit(visitor: TemplateAstVisitor, context: any): any;
 }
 /**
  * A reference declaration on an element (e.g. `let someName="expression"`).
@@ -244,6 +246,36 @@ export interface TemplateAstVisitor {
     visitDirectiveProperty(ast: BoundDirectivePropertyAst, context: any): any;
 }
 /**
+ * A visitor that accepts each node but doesn't do anything. It is intended to be used
+ * as the base class for a visitor that is only interested in a subset of the node types.
+ */
+export declare class NullTemplateVisitor implements TemplateAstVisitor {
+    visitNgContent(ast: NgContentAst, context: any): void;
+    visitEmbeddedTemplate(ast: EmbeddedTemplateAst, context: any): void;
+    visitElement(ast: ElementAst, context: any): void;
+    visitReference(ast: ReferenceAst, context: any): void;
+    visitVariable(ast: VariableAst, context: any): void;
+    visitEvent(ast: BoundEventAst, context: any): void;
+    visitElementProperty(ast: BoundElementPropertyAst, context: any): void;
+    visitAttr(ast: AttrAst, context: any): void;
+    visitBoundText(ast: BoundTextAst, context: any): void;
+    visitText(ast: TextAst, context: any): void;
+    visitDirective(ast: DirectiveAst, context: any): void;
+    visitDirectiveProperty(ast: BoundDirectivePropertyAst, context: any): void;
+}
+/**
+ * Base class that can be used to build a visitor that visits each node
+ * in an template ast recursively.
+ */
+export declare class RecursiveTemplateAstVisitor extends NullTemplateVisitor implements TemplateAstVisitor {
+    constructor();
+    visitEmbeddedTemplate(ast: EmbeddedTemplateAst, context: any): any;
+    visitElement(ast: ElementAst, context: any): any;
+    visitDirective(ast: DirectiveAst, context: any): any;
+    protected visitChildren<T extends TemplateAst>(context: any, cb: (visit: (<V extends TemplateAst>(children: V[] | undefined) => void)) => void): any;
+}
+/**
  * Visit every node in a list of {@link TemplateAst}s with the given {@link TemplateAstVisitor}.
  */
 export declare function templateVisitAll(visitor: TemplateAstVisitor, asts: TemplateAst[], context?: any): any[];
+export declare type TemplateAstPath = AstPath<TemplateAst>;

@@ -56,8 +56,8 @@ export declare class _ParseAST {
     expectCharacter(code: number): void;
     optionalOperator(op: string): boolean;
     expectOperator(operator: string): void;
-    expectIdentifierOrKeyword(): string | null;
-    expectIdentifierOrKeywordOrString(): string | null;
+    expectIdentifierOrKeyword(): string;
+    expectIdentifierOrKeywordOrString(): string;
     parseChain(): AST;
     parsePipe(): AST;
     parseExpression(): AST;

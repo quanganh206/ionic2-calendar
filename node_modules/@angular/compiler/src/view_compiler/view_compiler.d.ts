@@ -1,17 +1,23 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { CompileDirectiveMetadata, CompilePipeSummary } from '../compile_metadata';
-import { CompilerConfig } from '../config';
+import { CompileReflector } from '../compile_reflector';
 import * as o from '../output/output_ast';
-import { ElementSchemaRegistry } from '../schema/element_schema_registry';
 import { TemplateAst } from '../template_parser/template_ast';
+import { OutputContext } from '../util';
 export declare class ViewCompileResult {
-    statements: o.Statement[];
     viewClassVar: string;
     rendererTypeVar: string;
-    constructor(statements: o.Statement[], viewClassVar: string, rendererTypeVar: string);
+    constructor(viewClassVar: string, rendererTypeVar: string);
 }
 export declare class ViewCompiler {
-    private _genConfigNext;
-    private _schemaRegistry;
-    constructor(_genConfigNext: CompilerConfig, _schemaRegistry: ElementSchemaRegistry);
-    compileComponent(component: CompileDirectiveMetadata, template: TemplateAst[], styles: o.Expression, usedPipes: CompilePipeSummary[]): ViewCompileResult;
+    private _reflector;
+    constructor(_reflector: CompileReflector);
+    compileComponent(outputCtx: OutputContext, component: CompileDirectiveMetadata, template: TemplateAst[], styles: o.Expression, usedPipes: CompilePipeSummary[]): ViewCompileResult;
 }
+export declare function elementEventFullName(target: string | null, name: string): string;

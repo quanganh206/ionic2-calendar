@@ -33,6 +33,7 @@ export declare class ParseError {
     msg: string;
     level: ParseErrorLevel;
     constructor(span: ParseSourceSpan, msg: string, level?: ParseErrorLevel);
+    contextualMessage(): string;
     toString(): string;
 }
 export declare function typeSourceSpan(kind: string, type: CompileIdentifierMetadata): ParseSourceSpan;

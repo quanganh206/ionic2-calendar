@@ -105,6 +105,7 @@ export declare abstract class DomAdapter {
     abstract removeAttributeNS(element: any, ns: string, attribute: string): any;
     abstract templateAwareRoot(el: any): any;
     abstract createHtmlDocument(): HTMLDocument;
+    abstract getDefaultDocument(): Document;
     abstract getBoundingClientRect(el: any): any;
     abstract getTitle(doc: Document): string;
     abstract setTitle(doc: Document, newTitle: string): any;
@@ -131,7 +132,6 @@ export declare abstract class DomAdapter {
     abstract setData(element: any, name: string, value: string): any;
     abstract getComputedStyle(element: any): any;
     abstract getData(element: any, name: string): string | null;
-    abstract setGlobalVar(name: string, value: any): any;
     abstract supportsWebAnimation(): boolean;
     abstract performanceNow(): number;
     abstract getAnimationPrefix(): string;

@@ -87,6 +87,7 @@ export declare class BrowserDomAdapter extends GenericBrowserDomAdapter {
     removeAttributeNS(element: Element, ns: string, name: string): void;
     templateAwareRoot(el: Node): any;
     createHtmlDocument(): HTMLDocument;
+    getDefaultDocument(): Document;
     getBoundingClientRect(el: Element): any;
     getTitle(doc: Document): string;
     setTitle(doc: Document, newTitle: string): void;
@@ -110,12 +111,9 @@ export declare class BrowserDomAdapter extends GenericBrowserDomAdapter {
     setData(element: Element, name: string, value: string): void;
     getData(element: Element, name: string): string | null;
     getComputedStyle(element: any): any;
-    setGlobalVar(path: string, value: any): void;
     supportsWebAnimation(): boolean;
     performanceNow(): number;
     supportsCookies(): boolean;
     getCookie(name: string): string | null;
     setCookie(name: string, value: string): void;
 }
-export declare function parseCookieValue(cookieStr: string, name: string): string | null;
-export declare function setValueOnPath(global: any, path: string, value: any): void;
